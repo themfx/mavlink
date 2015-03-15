@@ -16,6 +16,7 @@ class MAVParmDict(dict):
 
     def mavset(self, mav, name, value, retries=3):
         '''set a parameter on a mavlink connection'''
+        print("   ### WARNING: pymavlink/mavparm.py edit - AJU ###   ") #!# AJU edit
         got_ack = False
         while retries > 0 and not got_ack:
             retries -= 1
@@ -32,7 +33,8 @@ class MAVParmDict(dict):
                     break
         if not got_ack:
             print("timeout setting %s to %f" % (name, float(value)))
-            return False
+            #return False
+            print("IGNORING and continuing - AJU") #!# AJU edit
         return True
 
 
